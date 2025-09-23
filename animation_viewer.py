@@ -90,6 +90,22 @@ def move_jump():
 
 def move_attack():
     print("attack")
+    attack_row=1
+    attack_frames =6
+    frame_width = 27
+    frame_height = 48
+
+    sprite_sheet_height = sonic.h  # 이미지 전체 높이
+    for frame in range(attack_frames):
+        x = frame * frame_width + 5
+        y = sonic.h - (attack_row + 1) * frame_height
+        clear_canvas()
+        grass.draw_now(400, 30)
+        sonic.clip_draw(x, y, frame_width, frame_height, 400, 100, frame_width * 3, frame_height * 3)
+
+        update_canvas()
+
+        delay(0.1)
     pass
 
 
@@ -97,8 +113,8 @@ while True:
     grass.draw_now(400,30)
     #move_walk()
     #move_run()
-    move_jump()
-    #move_attack()
+    #move_jump()
+    move_attack()
 
     pass
 
