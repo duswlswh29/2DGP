@@ -55,6 +55,36 @@ def move_run():
 
 def move_jump():
     print("jump")
+
+    def move_custom_range():
+        frame_width=25
+        frame_height=48
+
+        for col in range(0,6):
+            row=2
+            x=col*frame_width+4
+            y=sonic.h-(row+1)*frame_height
+            clear_canvas()
+            grass.draw_now(400,30)
+            sonic.clip_draw(x,y,frame_width,frame_height,400,100,frame_width*3,frame_height*3)
+            update_canvas()
+            delay(0.1)
+
+
+        for col in range(0,2):
+          row=3
+          x=col*frame_width+4
+          y=sonic.h-(row+1)*frame_height
+          clear_canvas()
+          grass.draw_now(400,30)
+          sonic.clip_draw(x,y,frame_width,frame_height,400,100,frame_width*3,frame_height*3)
+          update_canvas()
+          delay(0.1)
+
+
+
+    move_custom_range()
+
     pass
 
 
@@ -66,8 +96,8 @@ def move_attack():
 while True:
     grass.draw_now(400,30)
     #move_walk()
-    move_run()
-    #move_jump()
+    #move_run()
+    move_jump()
     #move_attack()
 
     pass
