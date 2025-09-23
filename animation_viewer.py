@@ -3,19 +3,30 @@ from pico2d import *
 open_canvas()
 
 grass=load_image('grass.png')
-sonic=load_image('sonic-sprite1.jpg')
+sonic=load_image('sonic-sprite1.png')
 
 
 def move_walk():
     print("walk")
-    frame=0
-    for x in range(0,800,10):
+    walk_row=4
+    walk_frames=8
+    frame_width=30
+    frame_height=48
+
+    sprite_sheet_height = sonic.h  # 이미지 전체 높이
+    for frame in range(walk_frames):
+
+
+        x=frame*frame_width
+        y=sonic.h-(walk_row+1)*frame_height
         clear_canvas()
-        grass.draw(400,30)
-        sonic.clip_draw(frame*44,0,44,44,x,90)
+        grass.draw_now(400,30)
+        sonic.clip_draw(x,y,frame_width,frame_height,400,90)
+
         update_canvas()
-        frame=(frame+1)%8
-        delay(0.05)
+
+        delay(0.1)
+
     pass
 
 
