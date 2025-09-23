@@ -33,14 +33,17 @@ def move_run():
     print("run")
     run_row=6
     run_frames=8
-    frame_width=25
+
     frame_height=48
 
+    run_x = [0,25, 53, 81, 110, 138, 165, 191]
+    run_frame_widths = [25, 28, 28, 29,28 , 27, 26, 25]
     frame=0
     sprite_sheet_height = sonic.h  # 이미지 전체 높이
+    y=sonic.h-(run_row+1)*frame_height
     for frame in range(run_frames):
-        x=frame*(frame_width-5)+5
-        y=sonic.h-(run_row+1)*frame_height
+        x=3+run_x[frame]+1
+        frame_width=run_frame_widths[frame]
 
         clear_canvas()
         grass.draw_now(400,30)
@@ -112,8 +115,8 @@ def move_attack():
 
 while True:
     grass.draw_now(400,30)
-    move_walk()
-    #move_run()
+    #move_walk()
+    move_run()
     #move_jump()
     #move_attack()
 
