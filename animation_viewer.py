@@ -10,18 +10,18 @@ def move_walk():
     print("walk")
     walk_row=4
     walk_frames=8
-    frame_width=30
+    frame_width=29
     frame_height=48
 
     sprite_sheet_height = sonic.h  # 이미지 전체 높이
     for frame in range(walk_frames):
 
 
-        x=frame*frame_width
+        x=frame*frame_width+5
         y=sonic.h-(walk_row+1)*frame_height
         clear_canvas()
         grass.draw_now(400,30)
-        sonic.clip_draw(x,y,frame_width,frame_height,400,90)
+        sonic.clip_draw(x,y,frame_width,frame_height,400,100,frame_width*3,frame_height*3)
 
         update_canvas()
 
