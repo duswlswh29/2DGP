@@ -62,7 +62,7 @@ def move_jump():
 
         for col in range(0,6):
             row=2
-            x=col*frame_width+4
+            x=col*frame_width+9
             y=sonic.h-(row+1)*frame_height
             clear_canvas()
             grass.draw_now(400,30)
@@ -73,7 +73,7 @@ def move_jump():
 
         for col in range(0,2):
           row=3
-          x=col*frame_width+4
+          x=6+col*frame_width
           y=sonic.h-(row+1)*frame_height
           clear_canvas()
           grass.draw_now(400,30)
