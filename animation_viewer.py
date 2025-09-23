@@ -105,7 +105,7 @@ def move_attack():
         y = sonic.h - (attack_row + 1) * frame_height
         clear_canvas()
         grass.draw_now(400, 30)
-        sonic.clip_draw(x, y, frame_width, frame_height, 400, 200, frame_width * 10, frame_height * 10)
+        sonic.clip_draw(x, y, frame_width, frame_height, 400, 220, frame_width * 10, frame_height * 10)
 
         update_canvas()
 
@@ -116,9 +116,9 @@ def move_attack():
 while True:
     grass.draw_now(400,30)
     #move_walk()
-    move_run()
+    #move_run()
     #move_jump()
-    #move_attack()
+    move_attack()
 
     pass
 
