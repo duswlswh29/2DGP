@@ -130,6 +130,6 @@ while True:
     pass
 
 
-
+#완성
 
 close_canvas()
