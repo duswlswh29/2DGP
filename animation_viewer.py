@@ -56,6 +56,11 @@ def move_run():
 
     pass
 
+def repeat_animation(animation_func, repeat_count=5, pause_time=1.0):
+    for _ in range(repeat_count):
+        animation_func()
+    delay(pause_time)
+
 
 def move_jump():
     print("jump")
@@ -113,12 +118,14 @@ def move_attack():
     pass
 
 
+
+
 while True:
     grass.draw_now(400,30)
-    #move_walk()
-    #move_run()
-    #move_jump()
-    move_attack()
+    repeat_animation(move_walk)
+    repeat_animation(move_run)
+    repeat_animation(move_jump)
+    repeat_animation(move_attack)
 
     pass
 
