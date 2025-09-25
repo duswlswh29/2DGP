@@ -50,6 +50,7 @@ dir_y=0
 last_dir="right"
 
 
+
 while running:
     clear_canvas()
 
@@ -72,6 +73,14 @@ while running:
     x+=dir_x*5
     y+=dir_y*5
 
+    if x>777:
+        x=777
+    elif x<22:
+        x=22
+    if y>561:
+        y=561
+    elif y<37:
+          y=37
 
     delay(0.05)
 
