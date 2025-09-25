@@ -7,7 +7,7 @@ character = load_image('animation_sheet.png')
 
 
 def handle_events():
-    global running, dir_x ,dir_y
+    global running, dir_x ,dir_y,last_dir
     global x,y
 
     # fill here
@@ -19,8 +19,10 @@ def handle_events():
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_RIGHT:
                 dir_x+=1
+                last_dir="right"
             if event.key == SDLK_LEFT:
                 dir_x-=1
+                last_dir="left"
             if event.key==SDLK_UP:
                 dir_y+=1
             if event.key==SDLK_DOWN:
@@ -45,6 +47,7 @@ y=90
 frame = 0
 dir_x=0
 dir_y=0
+last_dir="right"
 
 
 while running:
@@ -58,8 +61,10 @@ while running:
     elif dir_x<0:
         character.clip_draw(frame * 100, 0, 100, 100, x,y)
     else:
-        character.clip_draw(frame * 100, 300, 100, 100, x, y)
-
+        if last_dir=="right":
+         character.clip_draw(frame * 100, 300, 100, 100, x, y)
+        else:
+         character.clip_draw(frame * 100, 200, 100, 100, x, y)
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
