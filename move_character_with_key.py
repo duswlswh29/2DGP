@@ -32,6 +32,10 @@ def handle_events():
                 dir_x-=1
             if event.key == SDLK_LEFT:
                 dir_x+=1
+            if event.key==SDLK_UP:
+                dir_y-=1
+            if event.key==SDLK_DOWN:
+                dir_y+=1
         # fill here
 
 
@@ -55,6 +59,8 @@ while running:
     frame = (frame + 1) % 8
     x+=dir_x*5
     y+=dir_y*5
+
+
     delay(0.05)
 
 
