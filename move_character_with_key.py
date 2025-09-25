@@ -36,7 +36,7 @@ def handle_events():
                 dir_y-=1
             if event.key==SDLK_DOWN:
                 dir_y+=1
-        # fill here
+
 
 
 running = True
@@ -46,13 +46,19 @@ frame = 0
 dir_x=0
 dir_y=0
 
-# fill here
+
 while running:
     clear_canvas()
 
-    # fill here
+
     grass.draw(400, 100)
-    character.clip_draw(frame * 100, 100, 100, 100, x, y)
+
+    if dir_x>0:
+        character.clip_draw(frame * 100, 100, 100, 100, x, y)
+    elif dir_x<0:
+        character.clip_draw(frame * 100, 0, 100, 100, x,y)
+    else:
+        character.clip_draw(frame * 100, 300, 100, 100, x, y)
 
     update_canvas()
     handle_events()
