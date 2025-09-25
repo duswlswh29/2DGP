@@ -47,7 +47,7 @@ while running:
     clear_canvas()
 
     # fill here
-    grass.draw(400, 30)
+    grass.draw(400, 100)
     character.clip_draw(frame * 100, 100, 100, 100, x, y)
 
     update_canvas()
