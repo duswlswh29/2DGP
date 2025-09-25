@@ -56,10 +56,11 @@ while running:
 
     grass.draw(400, 100)
 
-    if dir_x>0:
-        character.clip_draw(frame * 100, 100, 100, 100, x, y)
-    elif dir_x<0:
-        character.clip_draw(frame * 100, 0, 100, 100, x,y)
+    if dir_x!=0 or dir_y!=0:
+        if last_dir=="right":
+         character.clip_draw(frame * 100, 100, 100, 100, x, y)
+        else:
+         character.clip_draw(frame * 100, 0, 100, 100, x,y)
     else:
         if last_dir=="right":
          character.clip_draw(frame * 100, 300, 100, 100, x, y)
