@@ -10,7 +10,7 @@ def handle_events():
     global running, dir_x ,dir_y,last_dir
     global x,y
 
-    # fill here
+    
 
     events = get_events()
     for event in events:
@@ -85,6 +85,6 @@ while running:
 
     delay(0.05)
 
-
+#완성
 close_canvas()
 
