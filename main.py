@@ -3,7 +3,7 @@ from pico2d import *
 import game_world
 from boy import Boy
 from grass import Grass
-
+from front_grass import Front_Grass
 
 
 # Game object class here

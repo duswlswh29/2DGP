@@ -2,7 +2,7 @@
 # world[0] : 가장 밑에
 # world[1]: 그 위에
 
-world=[[],[]]
+world=[[],[],[]]
 
 def add_object(o,depth=0):#뎁스 기본값 설정
     world[depth].append(o)
