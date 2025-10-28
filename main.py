@@ -32,7 +32,7 @@ def reset_world():
     game_world.add_object(grass,2)
 
     front_grass=Front_Grass()
-    game_world.add_object(front_grass,0)
+    game_world.add_object(front_grass,0)# 맨 앞에 깔리는 것
 
 
     boy = Boy()
