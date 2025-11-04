@@ -25,7 +25,7 @@ class Bird:
 
     def __init__(self,x,y,dir=1):
         if Bird.image is None:
-            Bird.image=load_image('bird.animation.png')
+            Bird.image=load_image('bird_animation.png')
         self.x,self.y=x,y
         self.dir=dir
         self.frame=0
