@@ -8,17 +8,18 @@ from state_machine import StateMachine
 
 
 
-BIRD_SIZE_M=3.0
+BIRD_SIZE_M=3.0 #3mx3m
 BIRD_WIDTH=BIRD_SIZE_M * PIXEL_PER_METER
 BIRD_HEIGHT=BIRD_SIZE_M * PIXEL_PER_METER
 
-BIRD_SPEED_KMPH=25.0
+BIRD_SPEED_KMPH=25.0 #km/h
 BIRD_SPEED_MPM=(BIRD_SPEED_KMPH * 1000.0 / 60.0)
 BIRD_SPEED_MPS=(BIRD_SPEED_MPM / 60.0)
 BIRD_SPEED_PPS=(BIRD_SPEED_MPS * PIXEL_PER_METER)
 
+TIMER_PER_ACTION=1.0/3.0
 FRAMES_PER_ACTION=14
-ACTION_PER_TIME=1.0/0.5
+ACTION_PER_TIME=1.0/TIMER_PER_ACTION
 
 class Bird:
     image=None
@@ -35,6 +36,12 @@ class Bird:
     def update(self):
         self.frame=(self.frame+FRAMES_PER_ACTION*ACTION_PER_TIME*game_framework.frame_time)%14
         self.x+=self.dir * BIRD_SPEED_PPS * game_framework.frame_time
+
+
+        if self.x<20:
+           self.dir=1
+        elif self.x>1580:
+           self.dir=-1
 
         pass
     def draw(self):
