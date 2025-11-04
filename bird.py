@@ -53,6 +53,6 @@ class Bird:
         if self.dir==1:
             self.image.clip_draw(left,bottom,182,168,self.x,self.y,BIRD_WIDTH,BIRD_HEIGHT)
         else:
-            self.image.clip_draw(left,bottom,182,168,0,'h',self.x,self.y,BIRD_WIDTH,BIRD_HEIGHT)
+            self.image.clip_composite_draw(left,bottom,182,168,0,'h',self.x,self.y,BIRD_WIDTH,BIRD_HEIGHT)
         pass
 
