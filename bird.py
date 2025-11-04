@@ -17,14 +17,35 @@ BIRD_SPEED_MPM=(BIRD_SPEED_KMPH * 1000.0 / 60.0)
 BIRD_SPEED_MPS=(BIRD_SPEED_MPM / 60.0)
 BIRD_SPEED_PPS=(BIRD_SPEED_MPS * PIXEL_PER_METER)
 
+FRAMES_PER_ACTION=14
+ACTION_PER_TIME=1.0/0.5
+
 class Bird:
     image=None
 
-    def __init__(self):
+    def __init__(self,x,y,dir=1):
+        if Bird.image is None:
+            Bird.image=load_image('bird.animation.png')
+        self.x,self.y=x,y
+        self.dir=dir
+        self.frame=0
+
         pass
 
     def update(self):
+        self.frame=(self.frame+FRAMES_PER_ACTION*ACTION_PER_TIME*game_framework.frame_time)%14
+        self.x+=self.dir * BIRD_SPEED_PPS * game_framework.frame_time
+
         pass
     def draw(self):
+        frame_x = int(self.frame) % 5
+        frame_y = int(self.frame) // 5
+        left = frame_x * 182
+        bottom = (2 - frame_y) * 168
+
+        if self.dir==1:
+            self.image.clip_draw(left,bottom,182,168,self.x,self.y,BIRD_WIDTH,BIRD_HEIGHT)
+        else:
+            self.image.clip_draw(left,bottom,182,168,0,'h',self.x,self.y,BIRD_WIDTH,BIRD_HEIGHT)
         pass
 
