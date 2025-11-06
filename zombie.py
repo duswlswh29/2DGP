@@ -66,9 +66,11 @@ class Zombie:
 
     def handle_collision(self, group, other):
        if group=='ball:zombie':
-           if not self.hit:
-               self.hit=True
-               self.size=max(100,self.size//2)
+          self.hit_cnt+=1
+          if self.hit_cnt==1:
+              self.size=self.size//2
+          elif self.hit_cnt==2:
+              game_world.remove_object(self)
 
 
 
