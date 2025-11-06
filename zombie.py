@@ -71,6 +71,8 @@ class Zombie:
               self.size=self.size//2
           elif self.hit_cnt==2:
               game_world.remove_object(self)
+       elif group=='boy:zombie':
+           game_framework.quit()
 
 
 

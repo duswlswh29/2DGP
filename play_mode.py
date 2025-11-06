@@ -40,6 +40,7 @@ def init():
 
     #충돌 검사가 필요한 페어를 등록
     game_world.add_collision_pair('boy:ball',boy,None) #아까 만든다고 한 리스트에 boy를 넣음
+    game_world.add_collision_pair('boy:zombie',boy,None)
     for ball in balls:
         game_world.add_collision_pair('boy:ball',None,ball)
         #b리스트에(위에는 a리스트에집어넣는 )ball1 ball2 ball3이 다 들어감
@@ -51,6 +52,11 @@ def init():
 
     for zombie in zombies:
         game_world.add_collision_pair('ball:zombie',None,zombie)
+
+    for zombie in zombies:
+        game_world.add_collision_pair('boy:zombie',None,zombie)
+
+
 def update():
     game_world.update()
     #게임 내 모든 객체가 업데이트가 끝낫기 떄문에 그에 따른 충돌 검사 필요
