@@ -66,7 +66,7 @@ class Zombie:
 
     def handle_collision(self, group, other):
        if group=='ball:zombie':
-          self.hit_cnt+=1
+          self.hit_cnt+=1 #맞은 횟수
           if self.hit_cnt==1:
               self.size=self.size//2
           elif self.hit_cnt==2:
