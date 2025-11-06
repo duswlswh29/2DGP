@@ -15,6 +15,7 @@ class Ball:
         self.xv = throwin_speed * math.cos(math.radians(throwin_angle))  # m/s
         self.yv = abs(throwin_speed * math.sin(math.radians(throwin_angle)))   # m/s
         self.stopped = True if throwin_speed == 0.0 else False
+        self.removed=False
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -34,7 +35,14 @@ class Ball:
         return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
     def handle_collision(self, group, other):
+        if  self.removed:
+            return
         if group == 'boy:ball': #상대편이 boy -사라진다
+            self.removed = True
             game_world.remove_object(self) #커리전 페어에서는 없애지않음
         elif group=='grass:ball': #땅에 닿으면 멈춤
             self.stopped = True
+
+        elif group=='ball:zombie':
+            self.removed = True
+            game_world.remove_object(self)

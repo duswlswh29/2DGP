@@ -46,6 +46,11 @@ def init():
         #충돌 대상이 리스트화해서 들어감
         #이제 일일이 체크하는 일
 
+    for ball in balls:
+     game_world.add_collision_pair('ball:zombie',ball,None)
+
+    for zombie in zombies:
+        game_world.add_collision_pair('ball:zombie',None,zombie)
 def update():
     game_world.update()
     #게임 내 모든 객체가 업데이트가 끝낫기 떄문에 그에 따른 충돌 검사 필요

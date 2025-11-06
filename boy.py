@@ -178,6 +178,7 @@ class Boy:
             game_world.add_object(ball, 1)
             game_world.add_collision_pair('grass:ball', None, ball)
             game_world.add_collision_pair('boy:ball',None,ball)
+            game_world.add_collision_pair('ball:zombie',ball,None)
 
     def get_bb(self): #소년의 pivot좌표를 중심으로 100x100사각형 영역을 바운딩 박스를 알려줌
         return self.x - 20, self.y - 40, self.x + 50, self.y + 40
